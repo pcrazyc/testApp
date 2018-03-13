@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
     <script src="js/mui.min.js"></script>
+	<script src="js/app.js"></script>
+	
     <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/app.css" />
+		
     <script type="text/javascript" charset="utf-8">
       	mui.init();
       	mui('.mui-input-row input').input();
@@ -13,62 +17,42 @@
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav">
-		<h1 class="mui-title">登录</h1>
+		<h1 class="mui-title my_title">登录</h1>
 	</header>
 	<div class="mui-content">
 		<form class="mui-input-group">
-		    <div class="mui-input-row">
-		        <label>用户名</label>
-		    <input id="account" type="text" class="mui-input-clear" placeholder="请输入手机号">
-		    </div>
-		    <div class="mui-input-row">
-		        <label>密码</label>
-		        <input id="password" type="password" class="mui-input-password" placeholder="请输入密码">
-		    </div>
-		</form>
-		<div class="mui-button-row">
-	        <button id="login" type="button" class="mui-btn mui-btn-block mui-btn-primary" >登陆</button>
-	        <div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>
+			<div style="text-align: center; line-height: 200px;">
+				<img src="images/qihoo.png" style="margin: 0 auto; vertical-align: middle;"" />
 			</div>
-	   </div>
+			
+		    <div class="my_input">
+		        <label>用户名</label>
+		    		<input id="account" type="text" placeholder="请输入手机号">
+		    </div>
+		    <div class="my_input">
+		        <label>密码</label>
+		        <input id="password" type="password" placeholder="请输入密码">
+		    </div>
+		    
+		    <div class="link-area my_center">
+		    		<a id='reg'>注册账号</a> 
+		    		<a id='forgetPassword'>忘记密码</a>
+			</div>
+			<div style="text-align: center;">
+				<button id="login" type="button" class="my_button">登陆</button>
+			</div>
+			
+		</form>
 	</div>
 </body>
-<script type="text/javascript" src="js/app.js" ></script>
 <script type="text/javascript">
 	(function($, doc) {
 		$.init({
-			statusBarBackground: '#f7f7f7'
+			statusBarBackground: '#ff3333'
 		});
 		$.plusReady(function() {
+//			plus.navigator.setStatusBarBackground('#FF0000');
 			plus.screen.lockOrientation("portrait-primary");
-			var settings = app.getSettings();
-			var state = app.getState();
-			var mainPage = plus.webview.getWebviewById("main");
-			var main_loaded_flag = false;
-			if(!mainPage){
-				mainPage = $.preload({
-					"id": 'main',
-					"url": 'main.html'
-				});
-			}else{
-				main_loaded_flag = true;
-			}
-			
-			mainPage.addEventListener("loaded",function () {
-				main_loaded_flag = true;
-			});
-			var toMain = function() {
-				//使用定时器的原因：
-				//可能执行太快，main页面loaded事件尚未触发就执行自定义事件，此时必然会失败
-				var id = setInterval(function () {
-					if(main_loaded_flag){
-						clearInterval(id);
-						$.fire(mainPage, 'show', null);
-						mainPage.show("pop-in");
-					}
-				},20);
-			};
-
 			// close splash
 			setTimeout(function() {
 				//关闭 splash
@@ -92,9 +76,6 @@
 					}
 					toMain();
 				});
-			});
-			$.enterfocus('#login-form input', function() {
-				$.trigger(loginButton, 'tap');
 			});
 			regButton.addEventListener('tap', function(event) {
 				$.openWindow({

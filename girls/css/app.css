@@ -1,0 +1,45 @@
+.my_title {
+	left: 0px !important;
+	right: 0px !important;
+	width: auto;
+	background: #ff3333;
+	
+}
+
+.my_center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.my_input {
+	background: #FF0000;
+	width: 200px;
+	margin: 20px auto;
+	white-space: nowrap;
+}
+
+.my_input label {
+    float: left;
+    width: 35%;
+    padding: 10px 15px;
+}
+
+/*.my_input input {
+	float: right;
+
+    width: 65%;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    border: 0;
+}*/
+
+
+.my_button
+{
+    /*color: #fff;*/
+   	background-image: url(../images/weixin.png);
+	margin: 20px auto;
+	width: 200px;
+	background-repeat: no-repeat;
+}
