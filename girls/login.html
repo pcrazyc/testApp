@@ -15,40 +15,38 @@
       	mui('.mui-input-row input').input();
     </script>
 </head>
-<body>
+<body style="background-color: #f5f5f5; border-bottom: 0;">
 	<header class="mui-bar mui-bar-nav">
-		<h1 class="mui-title my_title">登录</h1>
+		<h1 class="mui-title my_title">welcome</h1>
 	</header>
 	<div class="mui-content">
-		<form class="mui-input-group">
+		<form class="mui-input-group" style="background-color: #f5f5f5;">
 			<div style="text-align: center; line-height: 200px;">
-				<img src="images/qihoo.png" style="margin: 0 auto; vertical-align: middle;"" />
+				<img src="images/LOGO.png" style="margin: 10% auto; vertical-align: middle; width: 80%;" />
 			</div>
-			
-		    <div class="my_input">
+		   <div class="my_input">
 		        <label>用户名</label>
-		    		<input id="account" type="text" placeholder="请输入手机号">
-		    </div>
+		    		<input id="account" type="number" placeholder="请输入手机号"/>
+		    </div> 
 		    <div class="my_input">
 		        <label>密码</label>
-		        <input id="password" type="password" placeholder="请输入密码">
+		        <input id="password" type="password" placeholder="请输入密码"/>
 		    </div>
 		    
-		    <div class="link-area my_center">
-		    		<a id='reg'>注册账号</a> 
-		    		<a id='forgetPassword'>忘记密码</a>
+		    <div class="link-area my_center" style="white-space: nowrap; padding-top: 10px;">
+		    		<a id='reg' class="my_link">注册账号</a>
+		    		<a id='forgetPassword' class="my_link">忘记密码</a>
 			</div>
 			<div style="text-align: center;">
-				<button id="login" type="button" class="my_button">登陆</button>
+				<div id="login" class="my_button" style="margin: 40px auto 0 auto;">登陆</div>
 			</div>
-			
 		</form>
 	</div>
 </body>
 <script type="text/javascript">
 	(function($, doc) {
 		$.init({
-			statusBarBackground: '#ff3333'
+			statusBarBackground: '#f5346f'
 		});
 		$.plusReady(function() {
 //			plus.navigator.setStatusBarBackground('#FF0000');
@@ -65,16 +63,30 @@
 			var regButton = doc.getElementById('reg');
 			var forgetButton = doc.getElementById('forgetPassword');
 			loginButton.addEventListener('tap', function(event) {
-				var loginInfo = {
-					account: accountBox.value,
-					password: passwordBox.value
-				};
-				app.login(loginInfo, function(err) {
-					if (err) {
-						plus.nativeUI.toast(err);
-						return;
+//				var loginInfo = {
+//					account: accountBox.value,
+//					password: passwordBox.value
+//				};
+//				app.login(loginInfo, function(err) {
+//					if (err) {
+//						plus.nativeUI.toast(err);
+//						return;
+//					}
+//					toMain();
+//				});
+				$.openWindow({
+					url: 'main.html',
+					id: 'main',
+					preload: true,
+					show: {
+						aniShow: 'pop-in'
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+					waiting: {
+						autoShow: false
 					}
-					toMain();
 				});
 			});
 			regButton.addEventListener('tap', function(event) {

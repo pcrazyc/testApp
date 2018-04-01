@@ -1364,7 +1364,7 @@ input[type=submit]:enabled:active {
 	width: 24px;
 	height: 24px;
 	padding-top: 0;
-	padding-bottom: 0
+	padding-bottom: 0;
 }
 
 .mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
