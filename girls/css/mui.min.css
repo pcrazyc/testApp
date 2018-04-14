@@ -3708,7 +3708,7 @@ body>.mui-progressbar {
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
-	width: 100%
+	width: 100%;
 }
 
 .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {

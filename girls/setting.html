@@ -1,38 +1,139 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Hello MUI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<link rel="stylesheet" href="css/mui.min.css">
-		<style>
-			html,body {
-				background-color: #efeff4;
-			}
-			.title{
-				margin: 20px 15px 10px;
-				color: #6d6d72;
-				font-size: 15px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="mui-content">
-			<div class="title">
-				<p>这是webview模式选项卡的第1个子页面setting</p>
-				<p>何谓webview模式？其实就是每个选项卡内容都是一个独立的webview，彼此之间互相独立、互不影响；
-					对于较为复杂的业务系统，推荐使用该模式。</p>
-				<p>基于webview模式的选项卡，支持原生加速的下拉刷新，点击第二个选项卡（“消息”），切换选项卡，体验下拉刷新；</p>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" href="css/app.css" />
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    
+		
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	mui('.mui-input-row input').input();
+    </script>
+</head>
+<body  style="background-color: #ffffff;>
+	<div class="mui-content">
+		<div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/BG_touxiang.png">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
 			</div>
 		</div>
-	</body>
-	<script src="js/mui.min.js"></script>
-	<script>
-		mui.init({
+        <ul class="mui-table-view mui-grid-view" style="background-color: #ffffff;">
+            <li class="mui-table-view-cell mui-col-xs-6 mui-col-sm-4"><a href="#">
+                <span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                	<!--<div class="mui-icon setting-icon" style="width: 120px;"></div>
+                		<img src="images/BG_button1.png" style="position:absolute;left:20%;top:10%; width:120px; height: 100px;" />
+			        <img src="images/users_icon.png" style="position:absolute;left:40%;top:25%; width:50px; height: 50px;" />
+                </div>-->
+                <div class="setting-icon-text">钱包</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-4"><a href="#">
+                <span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                <div class="setting-icon-text">会员中心</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-4"><a href="#">
+                <span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                <div class="setting-icon-text">钱包</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-4"><a href="#">
+                <span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                <div class="setting-icon-text">钱包</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-4"><a href="#">
+                <span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                <div class="setting-icon-text">钱包</div></a></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-4"><a href="#">
+            		<span class="mui-icon setting-icon" style="content: url(images/qianbao_icon.png);"></span>
+                <div class="setting-icon-text">钱包</div></a></li>
+        </ul>
+	</div>
+</body>
+<script type="text/javascript">
+	(function($, doc) {
+		$.init({
+			statusBarBackground: '#f5346f'
 			swipeBack:true //启用右滑关闭功能
 		});
-	</script>
+		$.plusReady(function() {
+//			plus.navigator.setStatusBarBackground('#FF0000');
+			plus.screen.lockOrientation("portrait-primary");
+			// close splash
+			setTimeout(function() {
+				//关闭 splash
+				plus.navigator.closeSplashscreen();
+			}, 600);
+			//
+			var slider = mui("#slider");
+			document.getElementById("switch").addEventListener('toggle', function(e) {
+				if (e.detail.isActive) {
+					slider.slider({
+						interval: 5000
+					});
+				} else {
+					slider.slider({
+						interval: 0
+					});
+				}
+			});
+			window.addEventListener('resize', function() {
+				oauthArea.style.display = document.body.clientHeight > 400 ? 'block' : 'none';
+			}, false);
+			//
+			var backButtonPress = 0;
+			$.back = function(event) {
+				backButtonPress++;
+				if (backButtonPress > 1) {
+					plus.runtime.quit();
+				} else {
+					plus.nativeUI.toast('再按一次退出应用');
+				}
+				setTimeout(function() {
+					backButtonPress = 0;
+				}, 1000);
+				return false;
+			};
+		});
+	}(mui, document));
+</script>
 </html>
