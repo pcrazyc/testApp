@@ -2,61 +2,310 @@
 <html>
 
 	<head>
-		<meta charset="utf-8">
-		<title>Hello MUI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../css/mui.min.css">
-		<!--App自定义的css-->
-		<!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
-		<style>
-			h5{
-		        padding-top: 8px;
-		        padding-bottom: 8px;
-		        text-indent: 12px;
-		    }
-		    
-			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
-				font-size: 15px;
-				margin-top:8px;
-				color: #333;
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>product-detail</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/own.css" />
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/app.css" />
+		<style type="text/css">
+			.mui-table-view-cell:after {
+				left: 0px;
+			}
+			
+			.mui-table-view .mui-table-view-cell {
+				background-color: white;
+			}
+			
+			.mui-slider-indicator .mui-active.mui-indicator {
+				/*background-color: #41CEA9;*/
+			}
+			
+			#headul:after {
+				height: 0px;
+			}
+			
+			#headul .mui-table-view-cell {
+				padding-bottom: 0px;
+				padding-top: 0px;
+				margin-top: 0px;
+				background-color: white;
+			}
+			
+			#headul {
+				margin-top: 10px;
+				margin-bottom: 8px;
+			}
+			
+			#headul .mui-table-view-cell:after {
+				height: 0px;
+			}
+			
+			.mui-table-cell .borderleft {
+				height: 40%;
+				border-left: 1px solid gray;
+				margin-left: 5px;
+			}
+			
+			.mui-icon.iconfont {
+				font-size: 1em;
+				color: #41CEA9;
+			}
+			
+			#headul .mui-table-view-cell.setbg {
+				background-color: #f3fcfb;
+			}
+			
+			#headul .mui-table-view-cell.setbg div {
+				font-size: 0.7em;
+				color: gray;
+			}
+			
+			.mui-table-view-cell p.evaluateTitle {
+				color: black;
+				font-size: 1em;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 10px;
+			}
+			
+			span.evaluate {
+				font-size: 0.68em;
+				color: darkgray;
+				border: 1px solid darkgray;
+				word-break: nowrap;
+				word-wrap: nowrap;
+				border-radius: 2px;
+				text-align: center;
+			}
+			
+			.mui-table-view-cell .evaluaterHead img {
+				background-color: darkgray;
+				width: 2.5em;
+				max-width: 2.5em;
+				height: 2.5em;
+				border: 1px solid gray;
+				border-radius: 50%;
+			}
+			
+			.mui-table-view-cell .evaluaterHead span {
+				font-size: 0.9em;
+				vertical-align: super;
+			}
+			
+			.mui-table-view-cell .evaluteContent {
+				font-size: 0.7em;
+				line-height: 1.2em;
+			}
+			
+			.mui-table-view-cell .evaluteMsg {
+				font-size: 0.5em;
+			}
+			
+			.mui-table-view-cell.moreEvaluate {
+				text-align: center;
+				padding-top: 8px;
+				padding-bottom: 8px;
+			}
+			
+			.mui-table-view-cell.moreEvaluate a {
+				color: darkgray;
+			}
+			
+			.mui-table .mui-col-xs-4 {
+				font-size: 0.68em;
+				color: darkgray;
+			}
+			
+			.mui-table .mui-col-xs-6 {
+				line-height: 1.1em;
+				font-size: 0.8em;
+			}
+			
+			.mui-table .mui-col-xs-6 .stroemsg {
+				font-size: 0.5em;
+				color: darkgray;
+			}
+			
+			.mui-table .mui-col-xs-6 .lingBtn {
+				font-size: 1em;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+				margin-top: 2px;
+				margin-bottom: 5px;
+				height: auto;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p.mui-ellipsis-2 {
+				font-size: 0.5em;
+				line-height: 1.2em;
+				white-space: pre;
+				height: 2.3em;
+			}
+			
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p.price {
+				font-size: 0.8em;
+				color: #41CEA9;
 			}
 		</style>
 	</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">图文表格</h1>
-		</header>
-		<div class="mui-content" style="background-color:#fff">
-		    <h5 style="background-color:#efeff4">慢生活</h5>
-		    <ul class="mui-table-view mui-grid-view">
-		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            <a href="#">
-		                <img class="mui-media-object" src="../images/shuijiao.jpg">
-		                <div class="mui-media-body">幸福就是可以一起睡觉</div></a></li>
-		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            <a href="#">
-		                <img class="mui-media-object" src="../images/muwu.jpg">
-		                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div></a></li>
-		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            <a href="#"><img class="mui-media-object" src="../images/cbd.jpg">
-		                <div class="mui-media-body">Color of SIP CBD</div></a></li>
-		        <li class="mui-table-view-cell mui-media mui-col-xs-6">
-		            <a href="#">
-		                <img class="mui-media-object" src="../images/yuantiao.jpg">
-		                <div class="mui-media-body">静静看这世界</div></a></li>
-		    </ul>    
+	<body style="background-color: #ffffff;>
+		<div class="mui-content">
+			<div id="detailcontent" class="mui-content  own-content-padding">
+
+			</div>
+			<footer class="hotel-footer">
+			<ul class="hotel-footer-menu hotel-footer-menu-c2">
+				<li><a href="chat.html"><img class="mui-icon tab-bottom-talk"></img>对话2</a></li>
+				<li data-url='./area-filter.html'><span class="mui-icon tab-bottom-order"></span>预约</li>
+			</ul>
+		</footer>
 		</div>
+		
+
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/own.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init({
+				swipeBack: false
+			});
+			var currentWebview; //当前子页面
+			var paredntWebview; //父页面
+			var product_id;
+			var detail = {};
+			var detailcontent;
+			mui.plusReady(function() {
+				currentWebview = plus.webview.currentWebview();
+				paredntWebview = currentWebview.parent();
+				detailcontent = document.getElementById('detailcontent');
+				//监听页面隐藏的隐藏的时候清空数据信息
+				currentWebview.addEventListener('hide', function() {
+					detail = {};
+				}, false);
+
+				//如果要获取当前页面的数据
+				mui.fire(paredntWebview, 'getExtendOptions', {});
+				//监听返回获取到options数据
+				window.addEventListener('postExtendOptions', function(e) {
+					console.log(JSON.stringify(e.detail.extendOptions))
+				}, false);
+
+				//初始化一些本地数据
+				initSomeData();
+				//设置显示
+				setHtml();
+			})
+
+			function initSomeData() {
+				detail.product_name = "小姐姐";
+				detail.product_price = {
+					defaultPrice: "2000",
+					listPrice: "1888"
+				};
+				var arr = [];
+				for(var i = 0; i < 5; i++) {
+					var img = 'images/detail/' + i + '.jpg';
+					arr.push(img);
+				}
+				detail.detail_small_pictures = arr;
+			}
+
+			function setHtml() {
+				//第一步设置第一个图片滑动
+				setSldiderHtml();
+				//第二步设置商品名字价钱等
+				setproductMessage();
+			}
+			//设置slider
+			function setSldiderHtml() {
+				var picSlider = document.createElement('div');
+				picSlider.className = 'mui-slider';
+				detailcontent.appendChild(picSlider);
+				var picSliderGroup = document.createElement('div');
+				picSliderGroup.className = 'mui-slider-group';
+				var picsliderindicator = document.createElement('div');
+				picsliderindicator.className = 'mui-slider-indicator';
+				for(var i = 0; i < detail.detail_small_pictures.length;) {
+					var item = detail.detail_small_pictures[i];
+					//设置itemdetai
+					var div = document.createElement('div');
+					div.className = 'mui-slider-item';
+					var html = '<a href="#"><img src="' + item + '"/></a>';
+					div.innerHTML = html;
+					picSliderGroup.appendChild(div);
+					//设置itemindicator
+					var divindicator = document.createElement('div');
+					if(i == 1) {
+						divindicator.className = 'mui-indicator mui-active';
+					} else {
+						divindicator.className = 'mui-indicator';
+					}
+					picsliderindicator.appendChild(divindicator);
+					i = i + 1;
+				}
+				picSlider.appendChild(picSliderGroup);
+				picSlider.appendChild(picsliderindicator);
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+			}
+			//设置信息
+			function setproductMessage() {
+				var headul = document.createElement('ul');
+				headul.id = 'headul';
+				headul.className = 'mui-table-view';
+				detailcontent.appendChild(headul);
+				var html = '<li class="mui-table-view-cell">\
+					<div class="mui-table">\
+						<div class="mui-table-cell mui-col-xs-10">\
+							<h4 class="own-black-color mui-ellipsis-2">基本资料</h4>\
+							<h5 class="own-black-color mui-ellipsis-2">' + detail.product_name + '</h5>\
+							<h5 class="own-main-color">¥' + detail.product_price.defaultPrice + '/小时</h5>\
+							<h6 class="own-text-through">¥' + detail.product_price.listPrice + '</h6>\
+							<h5 class="own-black-color">成都</h5>\
+						</div>\
+					</div>\
+					<div class="mui-table">\
+						<div class="mui-table-cell mui-col-xs-10">\
+							<h4 class="own-black-color mui-ellipsis-2">个人标签</h4>\
+							<div class="mui-table">\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">小鸟依人</h5>\
+								</div>\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">随便</h5>\
+								</div>\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">不知道</h5>\
+								</div>\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">不知道</h5>\
+								</div>\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">不知道</h5>\
+								</div>\
+								<div class="mui-table-cell mui-col-xs-10">\
+									<h5 class="own-black-color">不知道</h5>\
+								</div>\
+							</div>\
+						</div>\
+					</div>\
+					<div class="mui-table">\
+						<div class="mui-table-cell mui-col-xs-10">\
+							<h4 class="own-black-color mui-ellipsis-2">送礼物</h4>\
+							<a><img src="images/wallet_icon.png" style="width: 50px; height: 50px;"></img><span style="height:50px; line-height: 50px;">X100</span></a>\
+						</div>\
+					</div>\
+			</li>';
+				headul.innerHTML = html;
+			}
+		</script>
 	</body>
-	<script src="js/mui.min.js"></script>
-	<script>
-		mui.init({
-			swipeBack:true //启用右滑关闭功能
-		});
-	</script>
+
 </html>
